@@ -25,7 +25,7 @@ boot || goto custom_exit
 
 :option_two
 kernel https://boot.netboot.xyz/memdisk raw iso
-initrd http://192.168.1.1/tmp/mnt/ntfs/netboot/clover.iso
+initrd ftp://192.168.1.1//ntfs/netboot/clover.iso
 boot || goto custom_exit
 
 :option_three
