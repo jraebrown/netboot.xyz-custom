@@ -38,3 +38,16 @@ exit
 
 :custom_exit
 exit 0
+
+:option_win
+set url smb://r70000/sda1/netboot/Win10/x64
+imgfree
+kernel http://${boot_domain}/wimboot
+initrd -n bootmgr     ${url}/bootmgr       bootmgr ||
+initrd -n bootmgr.efi ${url}/bootmgr.efi   bootmgr.efi ||      
+initrd -n bcd         ${url}/boot/bcd      bcd ||
+initrd -n bcd         ${url}/Boot/BCD      bcd ||
+initrd -n boot.sdi    ${url}/boot/boot.sdi boot.sdi ||
+initrd -n boot.sdi    ${url}/Boot/boot.sdi boot.sdi ||
+initrd -n boot.wim    ${url}/sources/boot.wim boot.wim
+boot
